@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jf0F07OerRT8nu4EO6ms5qLm72Zy5RD1Z7rutSNIGqh7U8E4kpzpFqoaXhaMpiXC6yQaDHeY1ogwhmIWgt610w==",
+  "success": true,
+  "projectFilePath": "C:\\SoftwareProjects\\CodTracker\\CodTrackerBlazorUI\\CodTrackerBlazorUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sfree\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}
