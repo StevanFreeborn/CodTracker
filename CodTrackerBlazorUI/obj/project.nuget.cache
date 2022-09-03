@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jf0F07OerRT8nu4EO6ms5qLm72Zy5RD1Z7rutSNIGqh7U8E4kpzpFqoaXhaMpiXC6yQaDHeY1ogwhmIWgt610w==",
+  "dgSpecHash": "i+/FdIYZStihisg1J+zNsVVbPJ01AVuClU1eG4USJUfYPOgUMq/Be35B1gmT0buNmqf5VMsR912j0OLOyF/OHg==",
   "success": true,
   "projectFilePath": "C:\\SoftwareProjects\\CodTracker\\CodTrackerBlazorUI\\CodTrackerBlazorUI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sfree\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+    "C:\\Users\\sfree\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
+    "C:\\Users\\sfree\\.nuget\\packages\\mongodb.bson\\2.17.1\\mongodb.bson.2.17.1.nupkg.sha512",
+    "C:\\Users\\sfree\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
