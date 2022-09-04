@@ -1,7 +1,5 @@
-﻿using CodTrackerCore.Interfaces;
-using CodTrackerInfrastructure.Configuration;
+﻿using CodTrackerInfrastructure.Configuration;
 using CodTrackerInfrastructure.Contexts;
-using CodTrackerInfrastructure.Interfaces;
 using CodTrackerInfrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -19,6 +19,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/SoftwareProjects/CodTracker/CodTrackerBlazorUI/Components/MatchForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNYXRjaEZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/SoftwareProjects/CodTracker/CodTrackerBlazorUI/Pages/AddMatch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkTWF0Y2gucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/SoftwareProjects/CodTracker/CodTrackerBlazorUI/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

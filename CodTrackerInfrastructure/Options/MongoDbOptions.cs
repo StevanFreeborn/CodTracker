@@ -6,4 +6,5 @@ public class MongoDbOptions
     public string DatabaseName { get; set; }
     public string UsersCollectionName { get; set; }
     public string MatchesCollectionName { get; set; }
+    public string GameModesCollectionName { get; set; }
 }

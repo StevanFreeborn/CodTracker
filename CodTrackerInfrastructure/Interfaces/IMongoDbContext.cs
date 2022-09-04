@@ -1,7 +1,4 @@
-﻿using CodTrackerCore.Models;
-using MongoDB.Driver;
-
-namespace CodTrackerInfrastructure.Interfaces;
+﻿namespace CodTrackerInfrastructure.Interfaces;
 
 public interface IMongoDbContext
 {

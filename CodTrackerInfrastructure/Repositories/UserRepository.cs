@@ -1,8 +1,4 @@
-﻿using CodTrackerCore.Interfaces;
-using CodTrackerCore.Models;
-using CodTrackerInfrastructure.Interfaces;
-
-namespace CodTrackerInfrastructure.Repositories;
+﻿namespace CodTrackerInfrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {

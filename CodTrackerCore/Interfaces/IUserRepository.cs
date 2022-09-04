@@ -1,6 +1,4 @@
-﻿using CodTrackerCore.Models;
-
-namespace CodTrackerCore.Interfaces;
+﻿namespace CodTrackerCore.Interfaces;
 
 public interface IUserRepository
 {
