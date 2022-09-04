@@ -10,7 +10,7 @@ public class Match
     public string UserId { get; set; }
 
     [Required]
-    public MatchType MatchType { get; set; }
+    public string GameModeId { get; set; }
 
     [Required]
     public DateTime Date { get; set; }
