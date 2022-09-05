@@ -51,6 +51,8 @@
 }
 
 @code {
+    [Parameter]
+    public string MatchId { get; set; }
     private Match match;
     private List<GameMode> gameModes = new();
 

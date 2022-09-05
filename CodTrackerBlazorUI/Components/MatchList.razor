@@ -1,0 +1,62 @@
+﻿@inject IMatchRepository matchRepository
+@inject IGameModeRepository gameModeRepository
+@inject NavigationManager navManager
+
+<h3>MatchList</h3>
+
+@if (matches.Count > 0)
+{
+    <div class="container-fluid">
+        @foreach (var match in matches)
+        {
+            var gameMode = gameModes.FirstOrDefault(gm => gm.Id == match.GameModeId);
+
+            <div class="row">
+                <div class="col">
+                    @match.Date
+                </div>
+                <div class="col">
+                    @gameMode.Name
+                </div>
+                <div class="col">
+                    @match.Kills
+                </div>
+                <div class="col">
+                    @match.Deaths
+                </div>
+                <div class="col">
+                    @match.Damage
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" @onclick="() => HandleEditClick(match.Id)">
+                        Edit
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>
+        Log your first match.
+    </div>
+}
+
+@code {
+    private List<Match> matches = new();
+    private List<GameMode> gameModes = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        // TODO: Replace with actually getting logged in users userId
+        var userId = "631627b6705f65fc84b9ee48";
+        gameModes = await gameModeRepository.GetGameModesAsync();
+        matches = await matchRepository.GetMatchesByUserIdAsync(userId);
+    }
+
+    protected void HandleEditClick(string matchId)
+    {
+        navManager.NavigateTo($"/Match/{matchId}/Edit");
+    }
+}
