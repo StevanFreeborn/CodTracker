@@ -1,0 +1,10 @@
+﻿@page "/Match/{MatchId}/Edit"
+
+<h3>Edit Match</h3>
+
+<MatchForm MatchId="MatchId"/>
+
+@code {
+    [Parameter]
+    public string MatchId { get; set; }
+}
