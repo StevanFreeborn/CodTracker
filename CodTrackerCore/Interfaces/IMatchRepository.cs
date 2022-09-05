@@ -2,13 +2,13 @@
 
 public interface IMatchRepository
 {
-    List<Match> GetMatchesByUserIdAsync(string userId);
+    Task<List<Match>> GetMatchesByUserIdAsync(string userId);
 
-    Match GetMatchByIdAsync(string id);
+    Task<Match> GetMatchByIdAsync(string id);
 
-    void DeleteMatchByIdAsync(string id);
+    Task DeleteMatchByIdAsync(string id);
 
-    void CreateMatchAsync(Match match);
+    Task CreateMatchAsync(Match match);
 
-    void UpdateMatchAsync(string id, Match match);
+    Task UpdateMatchAsync(string id, Match match);
 }

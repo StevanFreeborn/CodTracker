@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CodTrackerInfrastructure.Repositories;
 
-namespace CodTrackerInfrastructure.Repositories;
 public class GameModeRepository : IGameModeRepository
 {
     private readonly IMongoDbContext _context;
@@ -13,8 +8,14 @@ public class GameModeRepository : IGameModeRepository
         _context = context;
     }
 
-    public List<GameMode> GetGameModesAsync()
+    public async Task<List<GameMode>> GetGameModesAsync()
     {
-        throw new NotImplementedException();
+        var result = await _context.GameModes.FindAsync(_ => true);
+        return result.ToList();
+    }
+
+    public async Task CreateGameModeAsync(GameMode gameMode)
+    {
+        await _context.GameModes.InsertOneAsync(gameMode);
     }
 }

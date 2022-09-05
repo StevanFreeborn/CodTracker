@@ -1,9 +1,81 @@
-﻿<EditForm Model="@match">
-    <DataAnnotationsValidator />
+﻿@inject IGameModeRepository gameModeRepository
+@inject IMatchRepository matchRepository
+@inject IUserRepository userRepository
 
-    <button type="submit">Submit</button>
-</EditForm>
+@if (gameModes.Count > 0)
+{
+    <EditForm Model="@match" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="mb-3">
+            <label for="game-mode" class="form-label fw-bold">Game Mode</label>
+            <InputSelect id="game-mode" class="form-control" @bind-Value="@match.GameModeId" placeholder="Select Game Mode">
+                <option value="">Select Game Mode</option>
+                @foreach (var mode in gameModes)
+                {
+                    <option value="@mode.Id">@mode.Name</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => match.GameModeId)" />
+        </div>
+
+        <div class="mb-3">
+            <label for="date" class="form-label fw-bold">Date</label>
+            <InputDate id="date" class="form-control" @bind-Value="@match.Date"></InputDate>
+            <ValidationMessage For="@(() => match.Date)" />
+        </div>
+
+        <div class="mb-3">
+            <label for="kills" class="form-label fw-bold">Kills</label>
+            <InputNumber id="kills" class="form-control" @bind-Value="@match.Kills"></InputNumber>
+            <ValidationMessage For="@(() => match.Kills)" />
+        </div>
+
+        <div class="mb-3">
+            <label for="deaths" class="form-label fw-bold">Deaths</label>
+            <InputNumber id="deaths" class="form-control" @bind-Value="@match.Deaths"></InputNumber>
+            <ValidationMessage For="@(() => match.Deaths)" />
+        </div>
+
+        <div class="mb-3">
+            <label for="damage" class="form-label fw-bold">Damage</label>
+            <InputNumber id="damage" class="form-control" @bind-Value="@match.Damage"></InputNumber>
+            <ValidationMessage For="@(() => match.Damage)" />
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </EditForm>
+}
 
 @code {
-    private Match match = new();
+    private Match match;
+    private List<GameMode> gameModes = new();
+
+    // reusable function to be able to initialize match state on first render and after form submit. 
+    protected void InitializeMatch()
+    {
+        // TODO: Replace with actually getting logged in user and setting userId to logged in user's id
+        match = new();
+        match.UserId = "631627b6705f65fc84b9ee48";
+        match.Date = DateTime.Now;
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        InitializeMatch();
+        gameModes = await gameModeRepository.GetGameModesAsync();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+    }
+
+    protected async Task HandleValidSubmit()
+    {
+        await matchRepository.CreateMatchAsync(match);
+        InitializeMatch();
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CodTrackerCore.Interfaces;
 public interface IGameModeRepository
 {
-    List<GameMode> GetGameModesAsync();
-
+    Task<List<GameMode>> GetGameModesAsync();
+    Task CreateGameModeAsync(GameMode gameMode);
 }

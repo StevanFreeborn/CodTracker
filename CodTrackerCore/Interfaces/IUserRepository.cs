@@ -2,13 +2,13 @@
 
 public interface IUserRepository
 {
-    List<User> GetUsersAsync();
+    Task<List<User>> GetUsersAsync();
 
-    Match GetUserByIdAsync(string id);
+    Task<User> GetUserByIdAsync(string id);
 
-    void DeleteUserByIdAsync(string id);
+    Task DeleteUserByIdAsync(string id);
 
-    void CreateUserAsync(User user);
+    Task CreateUserAsync(User user);
 
-    void UpdateUserAsync(string id, User user);
+    Task UpdateUserAsync(string id, User user);
 }

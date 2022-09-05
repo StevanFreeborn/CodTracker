@@ -9,27 +9,27 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public void CreateUserAsync(User user)
+    public async Task CreateUserAsync(User user)
+    {
+        await _context.Users.InsertOneAsync(user);
+    }
+
+    public async Task DeleteUserByIdAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public void DeleteUserByIdAsync(string id)
+    public async Task<User> GetUserByIdAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public Match GetUserByIdAsync(string id)
+    public async Task<List<User>> GetUsersAsync()
     {
         throw new NotImplementedException();
     }
 
-    public List<User> GetUsersAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateUserAsync(string id, User user)
+    public async Task UpdateUserAsync(string id, User user)
     {
         throw new NotImplementedException();
     }

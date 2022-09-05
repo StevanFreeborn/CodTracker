@@ -14,6 +14,7 @@ public static class DependencyInjection
         services.AddScoped<IMongoDbContext, MongoDbContext>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMatchRepository, MatchRepository>();
+        services.AddScoped<IGameModeRepository, GameModeRepository>();
 
         return services;
     }

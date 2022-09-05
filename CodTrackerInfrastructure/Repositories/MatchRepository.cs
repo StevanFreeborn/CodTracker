@@ -9,27 +9,27 @@ public class MatchRepository : IMatchRepository
         _context = context;
     }
 
-    public void CreateMatchAsync(Match match)
+    public async Task CreateMatchAsync(Match match)
+    {
+        await _context.Matches.InsertOneAsync(match);
+    }
+
+    public async Task DeleteMatchByIdAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public void DeleteMatchByIdAsync(string id)
+    public async Task<Match> GetMatchByIdAsync(string id)
     {
         throw new NotImplementedException();
     }
 
-    public Match GetMatchByIdAsync(string id)
+    public async Task<List<Match>> GetMatchesByUserIdAsync(string userId)
     {
         throw new NotImplementedException();
     }
 
-    public List<Match> GetMatchesByUserIdAsync(string userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateMatchAsync(string id, Match match)
+    public async Task UpdateMatchAsync(string id, Match match)
     {
         throw new NotImplementedException();
     }
