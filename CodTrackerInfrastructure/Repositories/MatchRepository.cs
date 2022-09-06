@@ -21,7 +21,8 @@ public class MatchRepository : IMatchRepository
 
     public async Task<Match> GetMatchByIdAsync(string id)
     {
-        throw new NotImplementedException();
+        var result = await _context.Matches.FindAsync(m => m.Id == id);
+        return result.FirstOrDefault();
     }
 
     public async Task<List<Match>> GetMatchesByUserIdAsync(string userId)
