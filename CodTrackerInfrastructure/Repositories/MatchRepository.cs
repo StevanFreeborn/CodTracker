@@ -1,4 +1,6 @@
-﻿namespace CodTrackerInfrastructure.Repositories;
+﻿using MongoDB.Driver;
+
+namespace CodTrackerInfrastructure.Repositories;
 
 public class MatchRepository : IMatchRepository
 {
@@ -31,8 +33,8 @@ public class MatchRepository : IMatchRepository
         return result.ToList();
     }
 
-    public async Task UpdateMatchAsync(string id, Match match)
+    public async Task UpdateMatchAsync(Match match)
     {
-        throw new NotImplementedException();
+        await _context.Matches.ReplaceOneAsync(m => m.Id == match.Id, match);
     }
 }

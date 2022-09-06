@@ -1,6 +1,7 @@
 ﻿@inject IGameModeRepository gameModeRepository
 @inject IMatchRepository matchRepository
 @inject IUserRepository userRepository
+@inject NavigationManager navManager
 
 @if (gameModes.Count > 0)
 {
@@ -44,7 +45,7 @@
         </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
 
     </EditForm>
@@ -79,13 +80,17 @@
         gameModes = await gameModeRepository.GetGameModesAsync();
     }
 
-    protected override void OnAfterRender(bool firstRender)
-    {
-    }
-
     protected async Task HandleValidSubmit()
     {
-        await matchRepository.CreateMatchAsync(match);
-        await InitializeMatch();
+        if (match.Id is not null)
+        {
+            await matchRepository.UpdateMatchAsync(match);
+        }
+        else 
+        {
+            await matchRepository.CreateMatchAsync(match);
+        }
+
+        navManager.NavigateTo("/");
     }
 }

@@ -10,5 +10,5 @@ public interface IMatchRepository
 
     Task CreateMatchAsync(Match match);
 
-    Task UpdateMatchAsync(string id, Match match);
+    Task UpdateMatchAsync(Match match);
 }
