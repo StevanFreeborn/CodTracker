@@ -1,5 +1,4 @@
-﻿using CodTrackerBlazorUI.Data;
-using CodTrackerInfrastructure;
+﻿using CodTrackerInfrastructure;
 
 namespace CodTrackerBlazorUI.Setup;
 
@@ -10,8 +9,6 @@ public static class Services
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
-
-        builder.Services.AddSingleton<WeatherForecastService>();
 
         builder.Services.AddInfrastructureServices(builder.Configuration);
 
