@@ -74,6 +74,7 @@ else
     protected async Task HandleDeleteClick(string matchId)
     {
         await matchRepository.DeleteMatchByIdAsync(matchId);
+        // TODO: Consider just removing the deleted match from the existing matches list
         await GetMatches();
     }
 }
