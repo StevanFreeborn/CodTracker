@@ -18,7 +18,7 @@ public class MatchRepository : IMatchRepository
 
     public async Task DeleteMatchByIdAsync(string id)
     {
-        throw new NotImplementedException();
+        await _context.Matches.DeleteOneAsync(m => m.Id == id);
     }
 
     public async Task<Match> GetMatchByIdAsync(string id)

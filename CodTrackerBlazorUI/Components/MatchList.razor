@@ -29,7 +29,12 @@
                 </div>
                 <div class="col">
                     <button class="btn btn-primary" @onclick="() => HandleEditClick(match.Id)">
-                        Edit
+                        <span class="oi oi-pencil" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-danger" @onclick="() => HandleDeleteClick(match.Id)">
+                        <span class="oi oi-trash" aria-hidden="true"></span>
                     </button>
                 </div>
             </div>
@@ -39,7 +44,7 @@
 else
 {
     <div>
-        Log your first match.
+        <a href="/Match/Add" class="link-dark">Log</a> your first match.
     </div>
 }
 
@@ -47,16 +52,28 @@ else
     private List<Match> matches = new();
     private List<GameMode> gameModes = new();
 
-    protected async override Task OnInitializedAsync()
+    protected async Task GetMatches()
     {
         // TODO: Replace with actually getting logged in users userId
         var userId = "631627b6705f65fc84b9ee48";
-        gameModes = await gameModeRepository.GetGameModesAsync();
         matches = await matchRepository.GetMatchesByUserIdAsync(userId);
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+
+        gameModes = await gameModeRepository.GetGameModesAsync();
+        await GetMatches();
     }
 
     protected void HandleEditClick(string matchId)
     {
         navManager.NavigateTo($"/Match/{matchId}/Edit");
+    }
+
+    protected async Task HandleDeleteClick(string matchId)
+    {
+        await matchRepository.DeleteMatchByIdAsync(matchId);
+        await GetMatches();
     }
 }
