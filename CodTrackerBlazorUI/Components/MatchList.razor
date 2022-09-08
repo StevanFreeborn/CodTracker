@@ -9,31 +9,34 @@
         {
             var gameMode = gameModes.FirstOrDefault(gm => gm.Id == match.GameModeId);
 
-            <div class="row">
-                <div class="col">
-                    @match.Date
-                </div>
-                <div class="col">
-                    @gameMode.Name
-                </div>
-                <div class="col">
-                    @match.Kills
-                </div>
-                <div class="col">
-                    @match.Deaths
-                </div>
-                <div class="col">
-                    @match.Damage
-                </div>
-                <div class="col">
-                    <button class="btn btn-primary" @onclick="() => HandleEditClick(match.Id)">
-                        <span class="oi oi-pencil" aria-hidden="true"></span>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-danger" @onclick="() => HandleDeleteClick(match.Id)">
-                        <span class="oi oi-trash" aria-hidden="true"></span>
-                    </button>
+            <div class="card my-2 p-3">
+                <div class="row">
+                    <div class="row m-1">
+                        <div class="col">
+                            @match.Date - @gameMode.Name
+                        </div>
+                    </div>
+                    <div class="row m-1">
+                        <div class="col d-flex flex-column justify-content-center">
+                            <span class="fw-bold">Kills:&nbsp;</span> @match.Kills
+                        </div>
+                        <div class="col d-flex flex-column justify-content-center">
+                            <span class="fw-bold">Deaths:&nbsp;</span> @match.Deaths
+                        </div>
+                        <div class="col d-flex flex-column justify-content-center">
+                            <span class="fw-bold">Damage:&nbsp;</span> @match.Damage
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" @onclick="() => HandleEditClick(match.Id)">
+                                <span class="oi oi-pencil" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-danger" @onclick="() => HandleDeleteClick(match.Id)">
+                                <span class="oi oi-trash" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         }
